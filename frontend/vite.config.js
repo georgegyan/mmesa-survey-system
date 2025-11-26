@@ -9,5 +9,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-  }
+  },
+  base: './', // Add this line for proper asset loading
 })
