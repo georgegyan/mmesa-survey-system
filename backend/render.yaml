@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mmesa-survey-backend
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mmesa_survey_backend.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+
+databases:
+  - name: mmesa-db
+    plan: free
